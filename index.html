@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="menuApp">
+<head>
+<!-- 
+
+	The Angular Menu
+
+	Author: Jerry Lin          
+
+-->
+	<title>The Angular Menu</title>
+	
+	<script src="angular.min.js"></script>
+	<script src="menu.js"></script>
+	<script src="TweenMax.min.js"></script>
+	<link href="Style.css" rel="stylesheet" />
+</head>
+
+<body>
+	<h1>Menu</h1>
+	<div ng-controller="MenuListController as menuList">
+		Your order is total of {{menuList.totalCost()}} dollars. <button ng-click="menuList.order()">Order</button>
+		
+		<div ng-repeat="item in menuList.items" class="menuItem">
+			<div class="selected-{{item.selected}}">
+				<input type="checkbox" ng-model="item.selected"><div class="menuDescription">{{item.text}}</div><div class="menuPrice">${{item.price}}</div>
+			</div>	
+		</div>
+		
+		<div ng-repeat="comment in menuList.comments" class="menuItem">
+			<div>
+				<div class="menuDescription">{{comment.text}}</div><button ng-click="menuList.deleteComment($index)">Delete</button>
+			</div>	
+		</div>
+		
+		<form ng-submit="menuList.addComment()">
+			<input type="text" ng-model="menuList.commentText" size="30" placeholder="add special requests here">
+			<input type="submit" value="add">
+		</form>
+	</div>
+</body>
+
+</html>
