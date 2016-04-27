@@ -14,8 +14,10 @@
 -->
 	<title>The Angular Menu</title>
 	
+	<script src="jquery.min.js" type="text/javascript"></script>
 	<script src="angular.min.js"></script>
 	<script src="menu.js"></script>
+	<script src="animation.js"></script>
 	<script src="TweenMax.min.js"></script>
 	<link href="Style.css" rel="stylesheet" />
 </head>
@@ -23,22 +25,29 @@
 <body>
 	<h1>Menu</h1>
 	<div ng-controller="MenuListController as menuList">
-		<div class="menuRow">
-			Your order is total of {{menuList.totalCost()}} dollars. <button ng-click="menuList.order()">Order</button>
+		<div class="menuRowTitle">
+			Your order is total of {{menuList.totalCost()}} dollars.
 		</div>
 		
-		<div ng-repeat="item in menuList.items" class="menuRow selected-{{item.selected}}">
-			<input type="checkbox" ng-model="item.selected"><div class="menuDescription">{{item.text}}</div><div class="menuPrice">${{item.price}}</div>
+		<div ng-repeat="item in menuList.items" class="menuRow selected-{{item.selected}}" ng-click="menuList.addItem($index)">
+			<div class="menuDescription">{{item.text}}</div>
+			<div class="menuPrice">${{item.price}}</div>
+			<div class="menuClick">Click</div>
 		</div>
 		
-		<div ng-repeat="comment in menuList.comments" class="menuRow menuComment">
-			<div class="menuDescription">{{comment.text}}</div><button ng-click="menuList.deleteComment($index)">Delete</button>
+		<div ng-repeat="comment in menuList.comments" class="menuRow menuComment" ng-click="menuList.deleteComment($index)">
+			<div class="menuDescription">{{comment.text}}</div>
+			<div class="menuClick">Delete</div>
 		</div>
 		
-		<form ng-submit="menuList.addComment()" class="menuRow">
-			<input type="text" ng-model="menuList.commentText" size="30" placeholder="add special requests here">
+		<form ng-submit="menuList.addComment()" class="menuRowTitle">
+			<input type="text" ng-model="menuList.commentText" class="menuCommentInput" size="30" placeholder="add special requests here">
 			<input type="submit" value="add">
 		</form>
+		<br />
+		<div class="menuOrder">
+			<button ng-click="menuList.order()">Order</button>
+		</div>
 	</div>
 </body>
 

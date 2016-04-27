@@ -5,11 +5,19 @@ body {
 }
 
 .selected-true {
-	background-color: lightgrey;
+	background-color: lightblue;
+}
+
+.menuRowTitle {
+	padding:		10px 0px 10px 0px;
+	height:			20px;
 }
 
 .menuRow {
-	padding:	10px;
+	border:			1px solid black;
+	padding:		10px;
+	margin:			2px 0px 2px 0px;
+	height:			20px;
 }
 
 .menuDescription {
@@ -22,6 +30,12 @@ body {
 	width:		200px;
 	position:	relative;
 	float:		left;
+}
+
+.menuClick {
+	width:		50px;
+	position:	relative;
+	float:		right;
 }
 
 .menuComment {

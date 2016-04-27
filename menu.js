@@ -1,5 +1,8 @@
 angular.module('menuApp', [])
   .controller('MenuListController', function() {
+	
+	$(".menuOrder").css("display","none");
+	
     var menuList = this;
     menuList.items = [
       {text:'Caffe Latte', selected:false, price:2.95},
@@ -9,10 +12,27 @@ angular.module('menuApp', [])
 	  {text:'Freshly Brewed Coffee', selected:false, price:1.85}];
 	  
 	menuList.comments = [];
- 
+
+    menuList.addItem = function(index) {
+		if (menuList.items[index].selected == true){
+			menuList.items[index].selected = false;
+		}else{
+			menuList.items[index].selected = true;
+		}
+		if (totalCost() == 0){
+			$(".menuOrder").css("display","none");
+		}else{
+			$(".menuOrder").css("display","");
+		};
+    };	
+
     menuList.addComment = function() {
-      menuList.comments.push({text:menuList.commentText});
-      menuList.commentText = '';
+		if ($(".menuCommentInput").val() == ""){
+			alert ('must input comments!');
+		}else{
+			menuList.comments.push({text:menuList.commentText});
+			menuList.commentText = '';
+		}
     };
 
 	menuList.deleteComment = function(index) {
@@ -20,18 +40,22 @@ angular.module('menuApp', [])
     };
  
     menuList.totalCost = function() {
+		return totalCost();
+    };
+	
+	function totalCost(){
       var total = 0;
       angular.forEach(menuList.items, function(item) {
 		if (item.selected == true) total += item.price;
       });
       return total;
-    };
+	}
  
-    menuList.archive = function() {
-      var oldTodos = menuList.items;
-      menuList.items = [];
-      angular.forEach(oldTodos, function(item) {
-        if (!item.selected) menuList.items.push(item);
-      });
-    };
+    // menuList.archive = function() {
+      // var oldTodos = menuList.items;
+      // menuList.items = [];
+      // angular.forEach(oldTodos, function(item) {
+        // if (!item.selected) menuList.items.push(item);
+      // });
+    // };
   });
