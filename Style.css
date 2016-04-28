@@ -10,14 +10,14 @@ body {
 
 .menuRowTitle {
 	padding:		10px 0px 10px 0px;
-	height:			20px;
+	height:			40px;
 }
 
 .menuRow {
 	border:			1px solid black;
 	padding:		10px;
 	margin:			2px 0px 2px 0px;
-	height:			20px;
+	height:			40px;
 }
 
 .menuDescription {
@@ -43,10 +43,10 @@ body {
 }
 
 input[type=checkbox] {
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(2); /* IE */
-  -moz-transform: scale(2); /* FF */
-  -webkit-transform: scale(2); /* Safari and Chrome */
-  -o-transform: scale(2); /* Opera */
-  padding: 10px;
+	/* Double-sized Checkboxes */
+	-ms-transform: scale(2); /* IE */
+	-moz-transform: scale(2); /* FF */
+	-webkit-transform: scale(2); /* Safari and Chrome */
+	-o-transform: scale(2); /* Opera */
+	padding: 10px;
 }
