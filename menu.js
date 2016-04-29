@@ -78,8 +78,6 @@ angular.module('menuApp', [])
 		return totalCost();
 	};
 	
-	menuList.
-	
 	function displayComments(index){
 		if (menuList.orderedItems[index].comment == ''){
 			$(".menuComment" + index).css("display","none");
