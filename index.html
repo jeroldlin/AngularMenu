@@ -27,31 +27,44 @@
 </head>
 
 <body>
-	<h1>Menu</h1>
+	<h1>Coffee shop ordering system</h1>
 	<div ng-controller="MenuListController as menuList">
-		<div class="menuRowTitle">
-			Your order is total of {{menuList.totalCost()}} dollars.
-		</div>
-		
 		<div ng-repeat="item in menuList.items" class="menuRow selected-{{item.selected}}" ng-click="menuList.addItem($index)">
 			<div class="menuDescription">{{item.text}}</div>
 			<div class="menuPrice">${{item.price}}</div>
-			<div class="menuClick">Click</div>
+			<div class="menuClick">{{item.size}}</div>
 		</div>
 		
-		<div ng-repeat="comment in menuList.comments" class="menuRow menuComment" ng-click="menuList.deleteComment($index)">
-			<div class="menuDescription">{{comment.text}}</div>
-			<div class="menuClick">Delete</div>
+		
+		<div class="menuOrder menuRowTitle">
+			<button ng-click="menuList.addToOrder()" class="btn btn-primary">Add to Order</button>
+		</div>
+
+		
+		<div ng-repeat="orderedItem in menuList.orderedItems track by $index">
+			<div ng-click="menuList.deleteOrder($index)" class="orderRow">
+				<div class="menuDescription">{{orderedItem.text}}</div>
+				<div class="menuPrice">${{orderedItem.price}}</div>
+				<div class="menuClick">Delete</div>
+			</div>
+			<form ng-submit="menuList.addComment($index)" class="menuRowTitle" style="width:400px; height:60px" >
+				<input type="text" class="menuCommentInput{{$index}} menuCommentInput" size="30" placeholder="write special requests for this item" onblur="cancelEntry()">
+				<input type="submit" class="btn btn-primary" value="commit">
+			</form>
+			<div class="menuComment{{$index}} menuComment" ng-click="menuList.deleteComment($index)" style="display:none;">
+				<div class="menuDescription">{{orderedItem.comment}}</div>
+				<div class="menuClick">Delete</div>
+			</div>
 		</div>
 		
-		<form ng-submit="menuList.addComment()" class="menuRowTitle">
-			<input type="text" ng-model="menuList.commentText" class="menuCommentInput" size="30" placeholder="add special requests here">
-			<input type="submit" class="btn btn-primary" value="add">
-		</form>
-		<br />
-		<div class="menuOrder">
-			<button ng-click="menuList.order()" class="btn btn-primary">Order</button>
-		</div>
+		<div class="menuRowTitle">
+			Your order is total of <b>{{menuList.totalCost()}}</b> dollars.
+		</div>	
+		
+		<div class="checkout menuRowTitle">
+			<button ng-click="menuList.checkout()" class="btn btn-primary">Checkout</button>
+		</div>		
+		
 	</div>
 </body>
 

@@ -9,25 +9,29 @@ body {
 }
 
 .menuRowTitle {
-	padding:		10px 0px 10px 0px;
+	padding:		10px 2px 10px 2px;
 	height:			40px;
+	width:			100%;
+	float:			left;
 }
 
 .menuRow {
 	border:			1px solid black;
 	padding:		10px;
-	margin:			2px 0px 2px 0px;
+	margin:			2px 2px 2px 2px;
 	height:			40px;
+	width:			32%;
+	float:			left;
 }
 
 .menuDescription {
-	width:		200px;
+	width:		170px;
 	position:	relative;
 	float:		left;
 }
 
 .menuPrice {
-	width:		200px;
+	width:		50px;
 	position:	relative;
 	float:		left;
 }
@@ -39,7 +43,32 @@ body {
 }
 
 .menuComment {
-	background-color: orange;
+	border:			1px solid black;
+	padding:		10px;
+	margin:			2px 2px 2px 2px;
+	height:			40px;
+	width:			400px;
+	float:			right;
+	background-color: pink;
+}
+
+.menuCommentInput {
+	height:		30px;
+	padding:	3px 5px 5px 5px;
+}
+
+.menuOrder {
+	padding:		10px 2px 60px 2px;
+	float:			left;
+}
+
+.orderRow {
+	border:			1px solid black;
+	padding:		10px;
+	margin:			2px 2px 2px 2px;
+	height:			40px;
+	width:			100%;
+	float:			left;
 }
 
 input[type=checkbox] {
