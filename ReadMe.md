@@ -1,3 +1,3 @@
-This is a mock POS menu written with Angular
+This is a mock POS written with Angular and Nodejs with SocketIO
 
-Looking to implement back-end with node or rails later
+This repository only includes the alpha front-end work, please see the CoffeeShopPOS repository

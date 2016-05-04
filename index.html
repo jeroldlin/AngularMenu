@@ -39,7 +39,8 @@
 		<div class="menuOrder menuRowTitle">
 			<button ng-click="menuList.addToOrder()" class="btn btn-primary">Add to Order</button>
 		</div>
-
+		
+		<hr>
 		<h2>Your orders</h2>
 		<div ng-repeat="orderedItem in menuList.orderedItems track by $index">
 			<div ng-click="menuList.deleteOrder($index)" class="orderRow">

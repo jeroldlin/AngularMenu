@@ -53,13 +53,13 @@ h2 {
 }
 
 .menuComment {
-	border:			1px solid black;
-	padding:		10px;
-	margin:			2px 2px 2px 2px;
-	height:			40px;
-	width:			400px;
-	float:			right;
-	background-color: pink;
+	border:				1px solid black;
+	padding:			10px;
+	margin:				2px 2px 2px 2px;
+	height:				40px;
+	width:				400px;
+	float:				right;
+	background-color: 	pink;
 }
 
 .menuCommentInput {
